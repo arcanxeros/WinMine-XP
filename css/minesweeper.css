@@ -1,0 +1,22 @@
+#Minesweeper {
+	display: inline-block;
+	border: 1px solid #000;
+	border-top-left-radius: 10%;
+	border-top-right-radius: 10%;
+}
+
+#Minesweeper>#Window {
+	display: inline-block;
+	border: 30px solid #98b4d0;
+	border-top-left-radius: 10%;
+	border-top-right-radius: 10%;
+}
+
+/* TBD */
+#Minesweeper>#Window>#Title {}
+
+#Minesweeper>#Window>#Display {
+	background-color: #fff;
+	margin: -22px;
+	margin-top: 0;
+}

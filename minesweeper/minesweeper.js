@@ -42,7 +42,18 @@ minesweeper.innerHTML = "<div id=\"ms_window\" style=\"\">"+
 							"</div></td><td style=\"text-align: center;\"><img id=\"ms_face\" src=\"minesweeper/f.png\" onclick=\"onFaceClick()\"/>"+
 							"</td><td style=\"text-align: right;\"><div id=\"ms_timer_container\"><img src=\"minesweeper/n_0.png\"/>"+
 							"<img src=\"minesweeper/n_0.png\"/><img src=\"minesweeper/n_0.png\"/></div></td></tr></tbody></table></div>"+
-							"<div id=\"ms_field_container\" style=\"border-style:inset;\"></div></div></div>";
+							"<div id=\"ms_field_container\" style=\"border-style:inset;\">"+
+							"<img src=\"minesweeper/n_0.png\"/>"+
+							"<img src=\"minesweeper/n_1.png\"/>"+
+							"<img src=\"minesweeper/n_2.png\"/>"+
+							"<img src=\"minesweeper/n_3.png\"/>"+
+							"<img src=\"minesweeper/n_4.png\"/>"+
+							"<img src=\"minesweeper/n_5.png\"/>"+
+							"<img src=\"minesweeper/n_6.png\"/>"+
+							"<img src=\"minesweeper/n_7.png\"/>"+
+							"<img src=\"minesweeper/n_8.png\"/>"+
+							"<img src=\"minesweeper/n_9.png\"/>"+
+							"</div></div></div>";
 
 var ms_timer_container = document.getElementById("ms_timer_container");
 var ms_mineLeft_container = document.getElementById("ms_mineLeft_container");

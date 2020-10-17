@@ -13,8 +13,8 @@ minesweeper.style.display = "table";
 minesweeper.style.border="29px solid transparent";
 minesweeper.style.borderImage="url('minesweeper/border.png') 29";
 
-minesweeper.innerHTML = "<div id=\"ms_window\" style=\"margin-left:-26px;margin-right:-26px;margin-bottom:-26px;\">"+
-							"<div style=\";margin-top:-26px;\">"+
+minesweeper.innerHTML = "<div id=\"ms_window\" style=\"\">"+
+							"<div style=\"\">"+
 								"<table style=\"width: 100%;\">"+
 									"<tbody>"+
 										"<tr>"+
@@ -36,7 +36,7 @@ minesweeper.innerHTML = "<div id=\"ms_window\" style=\"margin-left:-26px;margin-
 							"<div id=\"ms_topbar\" style=\"background-color:rgba(255,255,255,255);\"><table><tbody><tr>"+
 							"<td><div>Game</div></td><td><div>Help</div></td></tr></tbody></table></div>"+
 							"<div id=\"ms_window_content\" style=\"border-style:outset;padding:6px;background-color:rgba(192,192,192,255);\">"+
-							"<div id=\"ms_top_container\" style=\"border-style:inset;margin-bottom:6px;\"><table style=\"width: 100%;\">"+
+							"<div id=\"ms_top_container\" style=\"border-style:inset;\"><table style=\"width: 100%;\">"+
 							"<tbody><tr><td style=\"text-align: left;\"><div id=\"ms_mineLeft_container\">"+
 							"<img src=\"minesweeper/n_0.png\"/><img src=\"minesweeper/n_0.png\"/><img src=\"minesweeper/n_0.png\"/>"+
 							"</div></td><td style=\"text-align: center;\"><img id=\"ms_face\" src=\"minesweeper/f.png\" onclick=\"onFaceClick()\"/>"+
@@ -102,6 +102,13 @@ function onTileFlag(x, y)
 
 function onFaceClick()
 {
+	if(timer != null)
+	{
+		clearInterval(timer);
+		time = -1;
+		TimerUpdate();
+		timer = null;
+	}
 	let face = document.getElementById("ms_face");
 	face.src = "minesweeper/f.png";
 	GenerateField();
@@ -113,6 +120,10 @@ function onTileClick(x, y)
 	let tile = document.getElementById(id);
 	if(!tile.getAttribute("Open") && !tile.getAttribute("Flagged"))
 	{
+		if(timer == null)
+		{
+			timer = setInterval(TimerUpdate, 1000);
+		}
 		tilesLeft--;
 		if(tilesLeft == mines)
 		{
@@ -147,6 +158,10 @@ function onTileClick(x, y)
 		}
 		if(field[x][y] == 9)
 		{
+			if(timer != null)
+			{
+				clearInterval(timer);
+			}
 			let face = document.getElementById("ms_face");
 			face.src = "minesweeper/f_l.png";
 			for(let x = 0; x < width; x++)
